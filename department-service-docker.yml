@@ -1,0 +1,22 @@
+server:
+  port: 8081
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://discovery-server:8761/eureka/
+
+person-service:
+  ribbon:
+    ServerListRefreshInterval: 1000 # this override doesn't work for some reason. The default is 30s
+    eureka:
+      enabled: true
+
+management:
+  endpoint:
+    health:
+      show-details: always
+  endpoints:
+    web:
+      exposure:
+        include: '*'
